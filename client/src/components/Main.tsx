@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const Main = () => {
+const Main = ({ onDeleteVisible }) => {
   const bigimage =
     "https://images.pexels.com/photos/18021349/pexels-photo-18021349/free-photo-of-mujer-en-cascada.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load";
   const smallimage =
@@ -8,7 +8,11 @@ const Main = () => {
   return (
     <section className="main flex sp-btw col-gap-2">
       <div className="main flex  row-gap-2 flx-col">
-        <Card variant={"smallCard"} src={smallimage} />
+        <Card
+          onClick={onDeleteVisible}
+          variant={"smallCard"}
+          src={smallimage}
+        />
         <Card variant={"smallCard"} src={smallimage} />
         <Card variant={"smallCard"} src={smallimage} />
       </div>

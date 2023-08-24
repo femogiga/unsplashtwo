@@ -1,10 +1,10 @@
 import Button from "./Button";
 import TextInput from "./TextInput";
 
-const DeletePhoto = () => {
+const DeletePhoto = ({onClick}) => {
   const addPhotoStyle = {
     width: "38.75rem",
-    padding: "1.5rem",
+    padding: "1rem",
     boxShadow:
       "0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2), 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2)",
     position: "absolute",
@@ -18,8 +18,8 @@ const DeletePhoto = () => {
     borderRadius: "12px",
   };
   return (
-    <article className="add-photo-modal flx-col" style={addPhotoStyle}>
-      <h2>Are you sure ?</h2>
+    <article className="add-photo-modal flx-col gap-1" style={addPhotoStyle}>
+      <h2 style={{ marginBlockEnd: "-.8rem" }}>Are you sure ?</h2>
 
       <TextInput
         borderColor={"#BDBDBD"}
@@ -34,12 +34,14 @@ const DeletePhoto = () => {
           color={"#BDBDBD"}
           text={"Cancel"}
           padding={".6rem"}
+          onClick={onClick}
         />
         <Button
           bgColor={"#EB5757"}
           color={"white"}
           text={"Delete"}
           padding={".6rem"}
+
         />
       </div>
     </article>

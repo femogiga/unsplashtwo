@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Card = ({ variant, src }) => {
+const Card = ({ variant, src ,onClick}) => {
   const [buttonAppear, setButtonAppear] = useState<boolean>(false);
 
   const bigStyle = {
@@ -41,7 +41,7 @@ const Card = ({ variant, src }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {buttonAppear && <button style={buttonStyle}>delete</button>}
+      {buttonAppear && <button style={buttonStyle} onClick={onClick}>delete</button>}
       <img src={src} alt="photos" />
     </article>
   );

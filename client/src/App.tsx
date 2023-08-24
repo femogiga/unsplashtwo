@@ -5,9 +5,11 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import TextInput from "./components/TextInput";
 import SearchIcon from "@mui/icons-material/Search";
-import DeletePhoto from "./components/deletePhoto";
+import DeletePhoto from "./components/DeletePhoto";
+import Container from "./components/Container";
 
 function App() {
+
   return (
     <div className="app">
       {/* <Button
@@ -31,10 +33,11 @@ function App() {
         labelText={"Photo url"}
         width
       /> */}
-      <Header />
-      <Main />
-      <DeletePhoto/>
+      {/* <Header  />
+      <Main /> */}
+      {/* <DeletePhoto/> */}
       {/* <AddPhoto /> */}
+      <Container/>
     </div>
   );
 }

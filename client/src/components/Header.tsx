@@ -2,10 +2,15 @@ import logo from "../assets/logo.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "./Button";
 import TextInput from "./TextInput";
+import { useState } from "react";
+import { SettingsInputAntennaTwoTone } from "@mui/icons-material";
 
-const Header = () => {
+
+const Header = ({onClick}) => {
+
+
   return (
-    <header className="header flow-4">
+   <header className="header flow-4">
       <form action="" className="form flex sp-btw col-gap-2">
         <div className="flex gap-2 alg-cent">
           <div>
@@ -21,11 +26,11 @@ const Header = () => {
             placeholder={"Search by name"}
             labelText={null}
             width
-            
+
           />
         </div>
         <div>
-          <Button
+          <Button onClick={onClick}
             bgColor={"#3DB46D"}
             color={"white"}
             text={"Add a photo"}

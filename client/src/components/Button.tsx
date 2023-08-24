@@ -1,4 +1,4 @@
-const Button = ({ bgColor, color, text, padding }) => {
+const Button = ({ bgColor, color, text, padding, onClick }) => {
   const buttonStyle = {
     background: "transparent",
     backgroundColor: bgColor || "lightgrey",
@@ -10,7 +10,7 @@ const Button = ({ bgColor, color, text, padding }) => {
   };
   return (
     <div>
-      <button type="submit" id="submit" style={buttonStyle}>
+      <button onClick={onClick} type="submit" id="submit" style={buttonStyle}>
         {text}
       </button>
     </div>

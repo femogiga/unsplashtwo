@@ -1,4 +1,10 @@
 {
+  "builds": [
+    {
+      "src": "./index",
+      "use": "@now/node"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",

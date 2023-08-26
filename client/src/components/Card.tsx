@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import dataService from '../utility/dataService';
 
-const Card = ({ variant, src, onClick, label }) => {
+const Card = ({ variant, src, onClick, label,onDelete }) => {
   const [buttonAppear, setButtonAppear] = useState<boolean>(false);
-  
+
 
   const bigStyle = {
     maxWidth: '24.063rem',

@@ -7,7 +7,8 @@ const TextInput = ({
   labelText,
   width,
   value,
-  onChange
+  onChange,
+  type
 }) => {
   const [addClass, setAddlass] = useState<boolean>(true);
   const inputStyle = {
@@ -32,7 +33,7 @@ const TextInput = ({
       <div className={icon ? `input-cont` : ''} style={contStyle}>
         {icon && icon}
         <input
-          type='text'
+          type={type}
           placeholder={placeholder}
           style={inputStyle}
           value={value}

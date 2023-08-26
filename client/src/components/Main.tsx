@@ -19,7 +19,12 @@ const Main = ({ onDeleteVisible }) => {
     fetchData();
   }, []);
 
- 
+  const handleDelete = (id) => {
+    dataService
+      .remove(`/posts/${id}`)
+      .then((res) => res.data)
+      .catch((error) => console.error(error));
+  };
 
   return (
     <section className='main flex sp-btw'>
@@ -47,7 +52,7 @@ const Main = ({ onDeleteVisible }) => {
             variant={'bigCard'}
             src={item.content}
             onClick={onDeleteVisible}
-
+            // onDelete={()=>handleDelete(item.id)}
           />
         ))}
       </div>

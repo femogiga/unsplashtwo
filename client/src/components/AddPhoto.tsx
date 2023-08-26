@@ -31,7 +31,8 @@ const AddPhoto = ({onModalVisible,onCreate,picLabel,picSource,onLabelChange,onSo
           labelText={"Label"}
           width={"90%"}
           value={picLabel}
-          onChange = {onLabelChange}
+          onChange={onLabelChange}
+          type="text"
         />
 
         <TextInput
@@ -41,7 +42,8 @@ const AddPhoto = ({onModalVisible,onCreate,picLabel,picSource,onLabelChange,onSo
           labelText={"Photo url"}
           width={"90%"}
           value={picSource}
-          onChange = {onSourceChange}
+          onChange={onSourceChange}
+          type="text"
         />
         <div className="flex gap-1" style={{ alignSelf: "flex-end" }}>
           <Button

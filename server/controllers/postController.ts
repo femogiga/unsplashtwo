@@ -40,6 +40,20 @@ const create = async (req, res) => {
     }
 }
 
+const remove = async (req, res) => {
+    const { id }=req.params
+    try {
+        const deleted = await prisma.post.delete({
+            where: {
+                id:id
+            }
+        })
+    } catch (error) {
+
+    }
+
+}
 
 
-module.exports = { getAll, create }
+
+module.exports = { getAll, create,remove }

@@ -13,7 +13,7 @@ const Container = () => {
   const [picLabel, setPicLabel] = useState<string>('');
   const [picSource, setPicSource] = useState<string>('');
   const [postData, setPostData] = useState({});
-  const dataObject = {};
+
   useEffect(() => {
     // console.log('picDarta=>', picLabel)
     // console.log('picDarta=>', picSource);
@@ -55,18 +55,18 @@ const Container = () => {
 
     const dataToSend = { label: picLabel, content: picSource };
 
-    if (dataToSend.content === "" || dataToSend.label === "") {
+    if (dataToSend.content === '' || dataToSend.label === '') {
       return;
-    }
-    else {
+    } else {
       dataService
         .create('/posts', dataToSend)
         .then((res) => res.data)
         .catch((err) => console.error(err));
-
     }
     setPostData({});
   };
+
+
   return (
     <div>
       <Header onClick={(e) => handleAddButton(e)} />
@@ -81,7 +81,9 @@ const Container = () => {
           picSource={picSource}
         />
       )}
-      {deleteVisible && <DeletePhoto onClick={handleCancelButton} />}
+      {deleteVisible && (
+        <DeletePhoto onClick={handleCancelButton}  />
+      )}
     </div>
   );
 };

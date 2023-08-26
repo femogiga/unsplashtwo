@@ -11,5 +11,9 @@ const create = (url, data) => {
     return axios.post(`${baseUrl}${url}`, data)
 }
 
+const remove = (url) => {
+    return axios.delete(`${baseUrl}${url}`)
+}
 
-export default { get, create }
+
+export default { get, create, remove }

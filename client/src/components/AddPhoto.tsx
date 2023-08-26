@@ -2,7 +2,7 @@
 import Button from "./Button";
 import TextInput from "./TextInput";
 
-const AddPhoto = ({onModalVisible}) => {
+const AddPhoto = ({onModalVisible,onCreate,picLabel,picSource,onLabelChange,onSourceChange}) => {
 
 
   const addPhotoStyle = {
@@ -22,22 +22,26 @@ const AddPhoto = ({onModalVisible}) => {
   };
   return (
      (
-      <article className="add-photo-modal flx-col" style={addPhotoStyle}>
+      <form className="add-photo-modal flx-col" style={addPhotoStyle}>
         <h2>Add a new photo</h2>
         <TextInput
           borderColor={"#BDBDBD"}
           icon={null}
-          placeholder={"Search by name"}
+          placeholder={"Add a label"}
           labelText={"Label"}
           width={"90%"}
+          value={picLabel}
+          onChange = {onLabelChange}
         />
 
         <TextInput
           borderColor={"#BDBDBD"}
           icon={null}
-          placeholder={"Search by name"}
+          placeholder={"Add a photo url"}
           labelText={"Photo url"}
           width={"90%"}
+          value={picSource}
+          onChange = {onSourceChange}
         />
         <div className="flex gap-1" style={{ alignSelf: "flex-end" }}>
           <Button
@@ -52,9 +56,10 @@ const AddPhoto = ({onModalVisible}) => {
             color={"white"}
             text={"Submit"}
             padding={".6rem"}
+            onClick={ onCreate}
           />
         </div>
-      </article>
+      </form>
     )
   );
 };

@@ -10,7 +10,7 @@ const Button = ({ bgColor, color, text, padding, onClick }) => {
   };
   return (
     <div>
-      <button onClick={onClick} type="submit" id="submit" style={buttonStyle}>
+      <button onClick={onClick} type="submit" id="submit" style={buttonStyle} >
         {text}
       </button>
     </div>

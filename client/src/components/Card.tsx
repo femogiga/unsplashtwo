@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import dataService from '../utility/dataService';
 
 const Card = ({ variant, src, onClick, label }) => {
   const [buttonAppear, setButtonAppear] = useState<boolean>(false);
+  
 
   const bigStyle = {
     maxWidth: '24.063rem',
@@ -44,6 +46,13 @@ const Card = ({ variant, src, onClick, label }) => {
     setButtonAppear(false);
   };
   const cardStyle = variant === 'bigCard' ? bigStyle : smallStyle;
+
+  // const handleCreate = () => {
+  //   dataService
+  //     .create('/posts', data)
+  //     .then((res) => res.data)
+  //     .catch((err) => console.error(err));
+  // };
 
   return (
     <article

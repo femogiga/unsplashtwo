@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Card from './Card';
-import dataService from '../dataService';
+import dataService from '../utility/dataService';
 
 const Main = ({ onDeleteVisible }) => {
   const [data, setData] = useState([]);
@@ -11,20 +11,16 @@ const Main = ({ onDeleteVisible }) => {
         const result = await dataService.get('/posts');
         const response = await result.data;
         setData(response);
-        return result;
+        return response;
       } catch (error) {
         console.error(error);
       }
-
-      // .get('/posts')
-      // .then((res) => res.data)
-      // .then((res) => setData(res))
-      // .then((res) => console.log(data))
-      //   .catch((err) => console.error(err)); ////
     };
     fetchData();
-    console.log(data);
   }, []);
+
+ 
+
   return (
     <section className='main flex sp-btw'>
       <div className='main flex  row-gap-2 wrap col-gap-2 sp-btw'>
@@ -47,10 +43,11 @@ const Main = ({ onDeleteVisible }) => {
           <Card
             key={item.id}
             // variant={item.id % 2 === 0 ? 'bigCard' : 'smallCard'}
-            label = {item.label}
+            label={item.label}
             variant={'bigCard'}
             src={item.content}
             onClick={onDeleteVisible}
+
           />
         ))}
       </div>

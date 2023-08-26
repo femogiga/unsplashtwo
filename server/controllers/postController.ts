@@ -30,7 +30,7 @@ const create = async (req, res) => {
 
                 label: label,
                 content: content,
-                authorId: authorId
+                authorId: authorId || 1
             }
         })
         res.status(201).json({ message: 'Successfully creaded new post', created })

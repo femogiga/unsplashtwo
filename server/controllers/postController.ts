@@ -41,19 +41,21 @@ const create = async (req, res) => {
 }
 
 const remove = async (req, res) => {
-    const { id }=req.params
+    const  id  = (req.params.id)
+    console.log(id)
     try {
         const deleted = await prisma.post.delete({
             where: {
-                id:id
+                id: parseInt(id)
             }
         })
+        res.status(200).json({message:'successfully deleted'})
     } catch (error) {
-
+        res.status(500).json({ message: 'Internal server error' })
     }
 
 }
 
 
 
-module.exports = { getAll, create,remove }
+module.exports = { getAll, create, remove }

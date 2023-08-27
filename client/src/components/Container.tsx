@@ -13,12 +13,14 @@ const Container = () => {
   const [picLabel, setPicLabel] = useState<string>('');
   const [picSource, setPicSource] = useState<string>('');
   const [postData, setPostData] = useState({});
+  const[getId, setGetId] = useState(null)
+  // const [deleteState, setDeleteState] = useState(false)
 
   useEffect(() => {
     // console.log('picDarta=>', picLabel)
-    // console.log('picDarta=>', picSource);
+
     console.log('picDarta=>', postData);
-  }, [deleteVisible, picLabel, picSource, postData]);
+  }, [deleteVisible, picLabel, picSource, postData,getId]);
 
   const handleLabelChange = (e) => {
     setPicLabel(e.target.value);
@@ -41,11 +43,12 @@ const Container = () => {
     setDeleteVisible(false);
   };
 
-  const handleDeleteButton = () => {
-    setDeleteVisible(true);
-  };
+  // const handleDeleteButton = () => {
+  //   setDeleteVisible(true);
+  // };
 
-  const onDeleteVisible = () => {
+  const onDeleteVisible = (e) => {
+    setGetId(e);
     setDeleteVisible(true);
     console.log('visible', deleteVisible);
   };
@@ -70,7 +73,7 @@ const Container = () => {
   return (
     <div>
       <Header onClick={(e) => handleAddButton(e)} />
-      <Main onDeleteVisible={onDeleteVisible} />
+      <Main onDeleteVisible={(e)=>onDeleteVisible(e)} setGetId = {setGetId} />
       {modalVisible && (
         <AddPhoto
           onModalVisible={handleCancelButton}
@@ -82,7 +85,7 @@ const Container = () => {
         />
       )}
       {deleteVisible && (
-        <DeletePhoto onClick={handleCancelButton}  />
+        <DeletePhoto onClick={handleCancelButton}  getId = {getId} />
       )}
     </div>
   );

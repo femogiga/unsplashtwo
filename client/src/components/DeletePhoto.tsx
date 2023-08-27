@@ -1,7 +1,8 @@
+import dataService from '../utility/dataService';
 import Button from './Button';
 import TextInput from './TextInput';
 
-const DeletePhoto = ({ onClick,onDelete }) => {
+const DeletePhoto = ({ onClick,getId }) => {
   const addPhotoStyle = {
     width: '38.75rem',
     padding: '1rem',
@@ -17,6 +18,14 @@ const DeletePhoto = ({ onClick,onDelete }) => {
     display: 'flex',
     borderRadius: '12px',
   };
+
+   const handleDelete = (getId) => {
+
+     dataService
+       .remove(`/posts/${getId}`)
+       .then((res) => res.data)
+       .catch((error) => console.error(error));
+   };
   return (
     <article className='add-photo-modal flx-col gap-1' style={addPhotoStyle}>
       <h2 style={{ marginBlockEnd: '-.8rem' }}>Are you sure ?</h2>
@@ -42,7 +51,7 @@ const DeletePhoto = ({ onClick,onDelete }) => {
           color={'white'}
           text={'Delete'}
           padding={'.6rem'}
-          onClick={onDelete}
+           onClick={()=>handleDelete(getId)}
         />
       </div>
     </article>

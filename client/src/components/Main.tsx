@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Card from './Card';
 import dataService from '../utility/dataService';
 
-const Main = ({ onDeleteVisible }) => {
+const Main = ({ onDeleteVisible, setGetId }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -18,13 +18,6 @@ const Main = ({ onDeleteVisible }) => {
     };
     fetchData();
   }, []);
-
-  const handleDelete = (id) => {
-    dataService
-      .remove(`/posts/${id}`)
-      .then((res) => res.data)
-      .catch((error) => console.error(error));
-  };
 
   return (
     <section className='main flex sp-btw'>
@@ -51,8 +44,8 @@ const Main = ({ onDeleteVisible }) => {
             label={item.label}
             variant={'bigCard'}
             src={item.content}
-            onClick={onDeleteVisible}
-            // onDelete={()=>handleDelete(item.id)}
+            onClick={(e) => onDeleteVisible(item.id)}
+            // onDelete={() =>  handleDelete(item.id)}
           />
         ))}
       </div>

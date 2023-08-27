@@ -1,41 +1,40 @@
-import logo from "../assets/logo.svg";
-import SearchIcon from "@mui/icons-material/Search";
-import Button from "./Button";
-import TextInput from "./TextInput";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 
+import logo from '../assets/logo.svg';
+import SearchIcon from '@mui/icons-material/Search';
+import Button from './Button';
+import TextInput from './TextInput';
 
-
-
-const Header = ({onClick,onChange,searchInput}) => {
-
-
+const Header = ({ onClick, onChange, searchInput }) => {
   return (
-   <header className="header flow-4">
-      <form action="" className="form flex sp-btw col-gap-2">
-        <div className="flex gap-2 alg-cent">
+    <header className='header flow-4'>
+      <form action='' className='form flex sp-btw col-gap-2'>
+        <div className='flex gap-2 alg-cent'>
           <div>
-            <img src={logo} alt="logo" />
+            <img src={logo} alt='logo' />
           </div>
           {/* <div className="input-cont">
             <SearchIcon />
             <input type="text" placeholder="Search by name" />
           </div> */}
           <TextInput
-            borderColor={"#BDBDBD"}
+            borderColor={'#BDBDBD'}
             icon={<SearchIcon />}
-            placeholder={"Search by name"}
+            placeholder={'Search by name'}
             labelText={null}
             width
             onChange={onChange}
-            value = {searchInput}
+            value={searchInput}
           />
         </div>
         <div>
-          <Button onClick={onClick}
-            bgColor={"#3DB46D"}
-            color={"white"}
-            text={"Add a photo"}
-            padding={".6rem"}
+          <Button
+            onClick={onClick}
+            bgColor={'#3DB46D'}
+            color={'white'}
+            text={'Add a photo'}
+            padding={'.6rem'}
           />
         </div>
       </form>

@@ -1,8 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import dataService from '../utility/dataService';
 import Button from './Button';
 import TextInput from './TextInput';
 
-const DeletePhoto = ({ onClick,getId }) => {
+const DeletePhoto = ({ onClick, getId }) => {
   const addPhotoStyle = {
     width: '38.75rem',
     padding: '1rem',
@@ -19,14 +22,13 @@ const DeletePhoto = ({ onClick,getId }) => {
     borderRadius: '12px',
   };
 
-   const handleDelete = (getId) => {
-
-     dataService
-       .remove(`/posts/${getId}`)
-       .then((res) => res.data)
-       .catch((error) => console.error(error));
-    setTimeout(()=> window.location.reload(),500)
-   };
+  const handleDelete = (getId) => {
+    dataService
+      .remove(`/posts/${getId}`)
+      .then((res) => res.data)
+      .catch((error) => console.error(error));
+    setTimeout(() => window.location.reload(), 500);
+  };
   return (
     <article className='add-photo-modal flx-col gap-1' style={addPhotoStyle}>
       <h2 style={{ marginBlockEnd: '-.8rem' }}>Are you sure ?</h2>
@@ -52,7 +54,7 @@ const DeletePhoto = ({ onClick,getId }) => {
           color={'white'}
           text={'Delete'}
           padding={'.6rem'}
-           onClick={()=>handleDelete(getId)}
+          onClick={() => handleDelete(getId)}
         />
       </div>
     </article>

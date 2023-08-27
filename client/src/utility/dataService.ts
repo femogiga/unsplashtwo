@@ -1,6 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import axios from "axios";
 
-const baseUrl = "http://localhost:9000"
+//const baseUrl = "http://localhost:9000"
+const baseUrl = "https://photoviewer.onrender.com"
 const token = localStorage.getItem('token');
 
 const get = (url) => {

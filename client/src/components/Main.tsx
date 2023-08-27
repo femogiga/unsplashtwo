@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { useEffect, useState } from 'react';
 import Card from './Card';
 import dataService from '../utility/dataService';

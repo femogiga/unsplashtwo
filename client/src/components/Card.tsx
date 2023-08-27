@@ -1,5 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { useState } from 'react';
-import dataService from '../utility/dataService';
 
 const Card = ({ variant, src, onClick, label, onDelete }) => {
   const [buttonAppear, setButtonAppear] = useState<boolean>(false);
@@ -8,7 +10,6 @@ const Card = ({ variant, src, onClick, label, onDelete }) => {
     maxWidth: '24.063rem',
     maxHeight: '36.405rem',
     position: 'relative',
-   
   };
   const smallStyle = {
     width: '23.929rem',

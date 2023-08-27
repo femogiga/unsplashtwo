@@ -31,7 +31,7 @@ const Main = ({ onDeleteVisible, setGetId, searchInput }) => {
           .filter(
             (item) =>
               searchInput === '' ||
-              new RegExp(`^${searchInput.slice(0, 2)}`, 'i').test(item.label) ||
+              new RegExp(`^${searchInput.slice(0, 7)}`, 'i').test(item.label) ||
               item.label === searchInput
           )
           .map((item) => (

@@ -86,7 +86,7 @@ img {
   margin-block-end: 4rem;
 }
 
-.flex-grow{
+.flex-grow {
   flex-grow: 1;
 }
 
@@ -138,3 +138,12 @@ img {
   max-width: 100%;
   object-fit: cover;
 }
+
+
+/* @media screen and (min-width:360px) {
+
+  #submit {
+    width: 100%;
+    background-color: red;
+  }
+} */

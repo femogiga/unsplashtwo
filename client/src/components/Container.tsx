@@ -15,12 +15,13 @@ const Container = () => {
   const [postData, setPostData] = useState({});
   const[getId, setGetId] = useState(null)
   // const [deleteState, setDeleteState] = useState(false)
+  const[searchInput, setSearchInput] = useState('')
 
   useEffect(() => {
     // console.log('picDarta=>', picLabel)
-
-    console.log('picDarta=>', postData);
-  }, [deleteVisible, picLabel, picSource, postData,getId]);
+ console.log('picDarta=>', postData);
+    console.log('textInput=>', searchInput);
+  }, [deleteVisible, picLabel, picSource, postData,getId,searchInput]);
 
   const handleLabelChange = (e) => {
     setPicLabel(e.target.value);
@@ -72,8 +73,8 @@ const Container = () => {
 
   return (
     <div>
-      <Header onClick={(e) => handleAddButton(e)} />
-      <Main onDeleteVisible={(e)=>onDeleteVisible(e)} setGetId = {setGetId} />
+      <Header onClick={(e) => handleAddButton(e)} onChange={(e)=>setSearchInput(e.target.value) } searchInput={searchInput} />
+      <Main onDeleteVisible={(e)=>onDeleteVisible(e)} setGetId = {setGetId} searchInput={searchInput} />
       {modalVisible && (
         <AddPhoto
           onModalVisible={handleCancelButton}

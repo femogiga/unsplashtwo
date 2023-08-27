@@ -41,7 +41,7 @@ const create = async (req, res) => {
 }
 
 const remove = async (req, res) => {
-    const  id  = (req.params.id)
+    const id = (req.params.id)
     console.log(id)
     try {
         const deleted = await prisma.post.delete({
@@ -49,13 +49,26 @@ const remove = async (req, res) => {
                 id: parseInt(id)
             }
         })
-        res.status(200).json({message:'successfully deleted'})
+        res.status(200).json({ message: 'successfully deleted' })
     } catch (error) {
         res.status(500).json({ message: 'Internal server error' })
     }
 
 }
 
+const findByLabel = async (req, res) => {
+    try {
+        const result = await prisma.post.findMany({
+            where: {
+                label: req.query.label
+            }
+        })
+        res.status(200).json(result)
+    } catch (err) {
+        res.status(500).json({ message: 'Internal server error' })
+    }
+}
 
 
-module.exports = { getAll, create, remove }
+
+module.exports = { getAll, create, remove, findByLabel }

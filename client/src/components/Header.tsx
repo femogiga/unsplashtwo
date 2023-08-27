@@ -2,11 +2,11 @@ import logo from "../assets/logo.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "./Button";
 import TextInput from "./TextInput";
-import { useState } from "react";
-import { SettingsInputAntennaTwoTone } from "@mui/icons-material";
 
 
-const Header = ({onClick}) => {
+
+
+const Header = ({onClick,onChange,searchInput}) => {
 
 
   return (
@@ -26,7 +26,8 @@ const Header = ({onClick}) => {
             placeholder={"Search by name"}
             labelText={null}
             width
-
+            onChange={onChange}
+            value = {searchInput}
           />
         </div>
         <div>

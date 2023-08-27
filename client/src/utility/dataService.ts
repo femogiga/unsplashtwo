@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = "http://localhost:9000"
-
+const token = localStorage.getItem('token');
 
 const get = (url) => {
     return axios.get(`${baseUrl}${url}`)

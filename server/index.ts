@@ -3,6 +3,7 @@ const { downloadImage } = require('./imageDownloader.ts')
 const path = require('path')
 //const bodyParser = require('body-parser');
 const postRoutes = require('./routes/postRoutes.ts')
+const userRoutes = require('./routes/userRoutes.ts')
 
 
 
@@ -21,6 +22,7 @@ app.use(morgan('tiny'))
 app.use(express.static(path.join(__dirname, "/photos")))
 //app.use(bodyParser.json());
 app.use('/posts', postRoutes)
+ app.use('/users', userRoutes)
 
 // let urlString = 'https://images.pexels.com/photos/9571276/pexels-photo-9571276.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load'
 

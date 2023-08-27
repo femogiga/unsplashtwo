@@ -5,8 +5,6 @@ import { InputLabel } from '@mui/material';
 
 const Main = ({ onDeleteVisible, setGetId, searchInput }) => {
   const [data, setData] = useState([]);
-  
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,11 +23,14 @@ const Main = ({ onDeleteVisible, setGetId, searchInput }) => {
 
   return (
     <section className='main flex sp-btw'>
-      <div
-        className='main flex  row-gap-2 wrap col-gap-2 sp-btw '
-       >
+      <div className='main flex  row-gap-2 wrap col-gap-2 sp-btw '>
         {data
-          .filter((item) => searchInput === '' || item.label === searchInput)
+          .filter(
+            (item) =>
+              searchInput === '' ||
+              new RegExp(`^${searchInput.slice(0, 2)}`, 'i').test(item.label) ||
+              item.label === searchInput
+          )
           .map((item) => (
             <Card
               key={item.id}

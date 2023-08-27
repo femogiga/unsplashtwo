@@ -13,15 +13,15 @@ const Container = () => {
   const [picLabel, setPicLabel] = useState<string>('');
   const [picSource, setPicSource] = useState<string>('');
   const [postData, setPostData] = useState({});
-  const[getId, setGetId] = useState(null)
+  const [getId, setGetId] = useState(null);
   // const [deleteState, setDeleteState] = useState(false)
-  const[searchInput, setSearchInput] = useState('')
+  const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
     // console.log('picDarta=>', picLabel)
- console.log('picDarta=>', postData);
+    console.log('picDarta=>', postData);
     console.log('textInput=>', searchInput);
-  }, [deleteVisible, picLabel, picSource, postData,getId,searchInput]);
+  }, [deleteVisible, picLabel, picSource, postData, getId, searchInput]);
 
   const handleLabelChange = (e) => {
     setPicLabel(e.target.value);
@@ -68,13 +68,23 @@ const Container = () => {
         .catch((err) => console.error(err));
     }
     setPostData({});
+    setModalVisible(false);
+    setTimeout(() => window.location.reload(), 500);
+    //  setTimeout(() => window.location.reload(), 900);
   };
-
 
   return (
     <div>
-      <Header onClick={(e) => handleAddButton(e)} onChange={(e)=>setSearchInput(e.target.value) } searchInput={searchInput} />
-      <Main onDeleteVisible={(e)=>onDeleteVisible(e)} setGetId = {setGetId} searchInput={searchInput} />
+      <Header
+        onClick={(e) => handleAddButton(e)}
+        onChange={(e) => setSearchInput(e.target.value)}
+        searchInput={searchInput}
+      />
+      <Main
+        onDeleteVisible={(e) => onDeleteVisible(e)}
+        setGetId={setGetId}
+        searchInput={searchInput}
+      />
       {modalVisible && (
         <AddPhoto
           onModalVisible={handleCancelButton}
@@ -86,7 +96,7 @@ const Container = () => {
         />
       )}
       {deleteVisible && (
-        <DeletePhoto onClick={handleCancelButton}  getId = {getId} />
+        <DeletePhoto onClick={handleCancelButton} getId={getId} />
       )}
     </div>
   );

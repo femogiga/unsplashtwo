@@ -86,6 +86,10 @@ img {
   margin-block-end: 4rem;
 }
 
+.flex-grow{
+  flex-grow: 1;
+}
+
 /* ******************************************************************* */
 /* Header styles */
 

@@ -26,6 +26,7 @@ const create = async (req, res) => {
     try {
         const { id, label, content, authorId } = req.body
         const created = await prisma.post.create({
+
             data: {
 
                 label: label,
@@ -59,6 +60,9 @@ const remove = async (req, res) => {
 const findByLabel = async (req, res) => {
     try {
         const result = await prisma.post.findMany({
+            orderBy: {
+                createdAt: 'desc',
+            },
             where: {
                 label: req.query.label
             }

@@ -25,6 +25,7 @@ const DeletePhoto = ({ onClick,getId }) => {
        .remove(`/posts/${getId}`)
        .then((res) => res.data)
        .catch((error) => console.error(error));
+    setTimeout(()=> window.location.reload(),500)
    };
   return (
     <article className='add-photo-modal flx-col gap-1' style={addPhotoStyle}>
